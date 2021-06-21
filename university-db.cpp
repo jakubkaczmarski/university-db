@@ -1,4 +1,5 @@
 #include "university.hpp"
+#include <memory>
 
 int main() {
   std::unique_ptr<University> university(new University());
@@ -10,6 +11,7 @@ int main() {
                                      11223344556, Gender::Male));
   university->saveRecords("university.json");
   university->sortByPesel();
+  university->sortBySurname();
   university->printAllDatabase();
   return 0;
 }
