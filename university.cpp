@@ -28,6 +28,13 @@ void University::sortByPesel() {
 
   sort->execute();
 }
+void University::sortBySurname() {
+  std::unique_ptr<Sort> sort(new Sort(this, [](Person *l, Person *p) {
+    return l->getSurname() < p->getSurname();
+  }));
+
+  sort->execute();
+}
 std::vector<Person *> University::getStudents() const {
     return students_;
 }
