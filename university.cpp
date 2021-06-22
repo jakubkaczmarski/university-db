@@ -36,10 +36,6 @@ void University::removeStudents(const size_t& index) {
     }));
     remove->execute();
 }
-void University::printAllDatabase() {
-    for (auto *student : students_)
-        student->print();
-}
 
 void University::sortByPesel() {
     std::unique_ptr<Sort> sort(new Sort(this, [](Person *l, Person *p) {
@@ -60,9 +56,6 @@ void University::searchByPesel(int64_t pesel) {
     tempUni->printAllDatabase();
 }
 
-std::vector<Person *> University::getStudents() const {
-    return students_;
-}
 void University::clearStudents() {
     for (auto *student : students_) {
         delete student;
@@ -90,7 +83,5 @@ void University::sortBySurname() {
 
   sort->execute();
 }
-std::vector<Person *> University::getStudents() const {
-    return students_;
-}
+
 

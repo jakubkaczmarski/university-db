@@ -23,10 +23,8 @@ public:
 
     }
 
-
-
-    void print() override {
-
+    size_t getIndex() {
+        return 0;
     }
 };
 

@@ -10,18 +10,15 @@ Save::Save(University *university, const std::string& filename)
 
 void Save::execute() {
     json array = json::array();
-    for (auto *person : university_->getStudents()) {
-        auto *student = dynamic_cast<Student *>(person);
-        if (student) {
+    for (auto it = university_->begin(); it != university_->end(); it++) {
             json object = json::object();
-            object["name"] = student->getName();
-            object["surname"] = student->getSurname();
-            object["address"] = student->getAddress();
-            object["index"] = student->getIndex();
-            object["pesel"] = student->getPesel();
-            object["sex"] = student->getSex();
+            object["name"] = (*it)->getName();
+            object["surname"] = (*it)->getSurname();
+            object["address"] = (*it)->getAddress();
+            object["index"] = (*it)->getIndex();
+            object["pesel"] = (*it)->getPesel();
+            object["sex"] = (*it)->getSex();
             array.push_back(object);
-        }
     }
     ofs << array;
 }

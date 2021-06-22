@@ -12,9 +12,8 @@ int main() {
                                        11223344556, Gender::Male));
     university->saveRecords("university.json");
 
-    university->searchByPesel(12345678901);
-    university->searchBySurname("Kowalski");
-    university->deleteByIndex(1002);
+//    university->searchByPesel(12345678901);
+//    university->searchBySurname("Kowalski");
     university->removeStudents(1003);
     university->printAllDatabase();
 

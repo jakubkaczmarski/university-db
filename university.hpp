@@ -17,12 +17,11 @@ public:
     void searchByPesel(int64_t pesel);
     void sortByPesel();
     void sortBySurname();
-    void deleteByIndex(size_t index);
 
     auto begin() { return students_.begin(); }
     auto end() { return students_.end(); }
     auto erase(const std::vector<Person *>::iterator& it) { return students_.erase(it); }
-    std::vector<Person *> getStudents() const;
+
     void clearStudents();
 
 private:

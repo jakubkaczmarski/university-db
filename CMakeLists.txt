@@ -61,6 +61,7 @@ set(sources
         search.cpp
         remove.cpp
         validation.cpp
+        print.cpp
        )
 
 set(tests
