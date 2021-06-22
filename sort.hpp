@@ -2,6 +2,7 @@
 #include "command.hpp"
 #include "university.hpp"
 #include <vector>
+#include <functional>
 
 class Sort : public Command {
 public:

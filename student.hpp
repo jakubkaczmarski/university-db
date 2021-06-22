@@ -2,7 +2,7 @@
 #include "iostream"
 #include "person.hpp"
 #include "string"
-
+#include <memory>
 class Student : public Person {
 public:
   Student(
@@ -15,7 +15,8 @@ public:
       );
 
   void print() override;
-  size_t getIndex() const;
+  size_t getIndex() override;
+  ~Student() = default;
 private:
     size_t index_;
 };

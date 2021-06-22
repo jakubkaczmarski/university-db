@@ -19,6 +19,7 @@ public:
   Gender getSex() const;
 
   virtual void print() = 0;
+  virtual size_t getIndex() = 0;
 private:
   std::string name_;
   std::string surname_;

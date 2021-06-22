@@ -20,6 +20,6 @@ void Student::print() {
             <<std::endl;
   std::cout<<"----------------------------------\n";
 }
-size_t Student::getIndex() const {
+size_t Student::getIndex() {
   return index_;
 }
