@@ -30,7 +30,7 @@ void University::sortByPesel() {
 }
 void University::sortBySurname() {
   std::unique_ptr<Sort> sort(new Sort(this, [](Person *l, Person *p) {
-    return l->getSurname() < p->getSurname();
+    return l->getSurname().compare(p->getSurname()) < 0;
   }));
 
   sort->execute();
