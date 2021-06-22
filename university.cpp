@@ -4,7 +4,8 @@
 #include "search.hpp"
 #include "sort.hpp"
 #include "student.hpp"
-#include "delete.hpp"
+#include "remove.hpp"
+
 #include <memory>
 #include <utility>
 
@@ -19,6 +20,13 @@ void University::saveRecords(const std::string &filename) {
     save->execute();
 }
 void University::addStudent(Student *student) { students_.push_back(student); }
+
+void University::removeStudents(const size_t& index) {
+    std::unique_ptr<Remove> remove(new Remove(this, [index](Person *p){
+        return p->getIndex() == index;
+    }));
+    remove->execute();
+}
 void University::printAllDatabase() {
     for (auto *student : students_)
         student->print();
@@ -62,12 +70,15 @@ void University::searchBySurname(std::string surname) {
         it->print();
     }
 }
-void University::deleteByIndex(size_t index) {
-    std::unique_ptr<DeleteC> deleteC(new DeleteC(
-            this, [index](Student *p) {
-               return  p->getIndex() == index;
-            }));
-    deleteC->execute();
-    auto personVec = deleteC->getresVec();
-    
+
+void University::sortBySurname() {
+  std::unique_ptr<Sort> sort(new Sort(this, [](Person *l, Person *p) {
+    return l->getSurname().compare(p->getSurname()) < 0;
+  }));
+
+  sort->execute();
 }
+std::vector<Person *> University::getStudents() const {
+    return students_;
+}
+
