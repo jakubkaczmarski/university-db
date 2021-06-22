@@ -3,6 +3,6 @@
 
 class Print : public Command {
 public:
-    Print();
+    Print(University *university);
     virtual void execute() override;
 };

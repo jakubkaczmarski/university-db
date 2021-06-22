@@ -14,9 +14,10 @@ public:
       Gender sex = Gender::Female
       );
 
-  void print() override;
   size_t getIndex() override;
+
   ~Student() = default;
+
 private:
     size_t index_;
 };

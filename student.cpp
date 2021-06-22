@@ -7,7 +7,7 @@ Student::Student(const std::string &name,
                  Gender sex)
   : Person(name, surname, address, pesel, sex), index_(index)
 {
-
+       
 }
 
 void Student::print() {
@@ -20,6 +20,8 @@ void Student::print() {
             <<std::endl;
   std::cout<<"----------------------------------\n";
 }
+
 size_t Student::getIndex() {
   return index_;
 }
+

@@ -7,6 +7,7 @@
 class University {
 public:
     University() = default;
+    University(const std::vector<Person*> &persons);
     void addStudent(Student *);
     void removeStudents(const size_t& index);
     void printAllDatabase();
