@@ -1,6 +1,8 @@
 #include "university.hpp"
+#include <memory>
 
 int main() {
+
     std::unique_ptr<University> university(new University());
     university->addStudent(new Student("Jan", "Kowalski", "Warszawa", 1001,
                                        22113355664, Gender::Male));
