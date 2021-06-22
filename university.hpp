@@ -9,7 +9,7 @@ public:
     University() = default;
     University(const std::vector<Person*> &persons);
     void addStudent(Student *);
-    void removeStudents();
+    void removeStudents(const size_t& index);
     void printAllDatabase();
     void saveRecords(const std::string &filename);
     void loadRecords(const std::string &filename);
@@ -21,7 +21,7 @@ public:
 
     auto begin() { return students_.begin(); }
     auto end() { return students_.end(); }
-
+    auto erase(const std::vector<Person *>::iterator& it) { return students_.erase(it); }
     std::vector<Person *> getStudents() const;
     void clearStudents();
 

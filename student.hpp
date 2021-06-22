@@ -2,7 +2,7 @@
 #include "iostream"
 #include "person.hpp"
 #include "string"
-
+#include <memory>
 class Student : public Person {
 public:
   Student(
@@ -14,8 +14,10 @@ public:
       Gender sex = Gender::Female
       );
 
-  // void print() override;
   size_t getIndex() override;
+
+  ~Student() = default;
+
 private:
     size_t index_;
 };
