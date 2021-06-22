@@ -20,6 +20,9 @@ public:
 
   virtual void print() = 0;
   virtual size_t getIndex() = 0;
+  
+  bool peselIsCorrect();
+
 private:
   std::string name_;
   std::string surname_;

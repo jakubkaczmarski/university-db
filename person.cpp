@@ -1,6 +1,5 @@
 #include "person.hpp"
-
-#include <utility>
+#include "validation.hpp"
 
 Person::Person(std::string name,
        std::string surname,
@@ -27,4 +26,9 @@ int64_t Person::getPesel() const {
 }
 Gender Person::getSex() const {
   return sex_;
+}
+bool Person::peselIsCorrect() {
+    std::unique_ptr<Validation> validation(new Validation(pesel_));
+    validation->execute();
+    return validation->isCorrect();
 }
