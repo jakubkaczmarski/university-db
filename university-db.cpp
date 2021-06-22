@@ -11,12 +11,12 @@ int main() {
     university->addStudent(new Student("Andrzej", "Skowroński", "Gdańsk", 1003,
                                        11223344556, Gender::Male));
     university->saveRecords("university.json");
-    // university->sortByPesel();
+
+    university->searchByPesel(12345678901);
+    university->searchBySurname("Kowalski");
+    university->deleteByIndex(1002);
     university->removeStudents(1003);
     university->printAllDatabase();
-   //university->searchByPesel(12345678901);
-    //university->searchBySurname("Kowalski");
 
-    // university->printAllDatabase();
     return 0;
 }

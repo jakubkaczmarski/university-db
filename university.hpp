@@ -16,6 +16,7 @@ public:
     void searchByPesel(int64_t pesel);
     void sortByPesel();
     void sortBySurname();
+    void deleteByIndex(size_t index);
 
     auto begin() { return students_.begin(); }
     auto end() { return students_.end(); }

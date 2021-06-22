@@ -5,6 +5,7 @@
 #include "sort.hpp"
 #include "student.hpp"
 #include "remove.hpp"
+
 #include <memory>
 #include <utility>
 
@@ -48,6 +49,16 @@ void University::searchByPesel(int64_t pesel) {
         it->print();
     }
 }
+
+std::vector<Person *> University::getStudents() const {
+    return students_;
+}
+void University::clearStudents() {
+    for (auto *student : students_) {
+        delete student;
+    }
+    students_.clear();
+}
 void University::searchBySurname(std::string surname) {
     std::unique_ptr<Search> search(new Search(
             this, [surname](Person *p) {
@@ -59,6 +70,7 @@ void University::searchBySurname(std::string surname) {
         it->print();
     }
 }
+
 void University::sortBySurname() {
   std::unique_ptr<Sort> sort(new Sort(this, [](Person *l, Person *p) {
     return l->getSurname().compare(p->getSurname()) < 0;
@@ -69,9 +81,4 @@ void University::sortBySurname() {
 std::vector<Person *> University::getStudents() const {
     return students_;
 }
-void University::clearStudents() {
-    for (auto *student : students_) {
-        delete student;
-    }
-    students_.clear();
-}
+
