@@ -19,6 +19,8 @@ public:
   Gender getSex() const;
 
   virtual void print() = 0;
+
+  bool peselIsCorrect();
 private:
   std::string name_;
   std::string surname_;
