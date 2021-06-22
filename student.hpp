@@ -14,8 +14,8 @@ public:
       Gender sex = Gender::Female
       );
 
-  void print() override;
-  size_t getIndex() const;
+  // void print() override;
+  size_t getIndex() override;
 private:
     size_t index_;
 };
