@@ -27,7 +27,7 @@ int64_t Person::getPesel() const {
 Gender Person::getSex() const {
   return sex_;
 }
-bool Person::peselIsCorrect() {
+bool Person::peselIsValid() {
     std::unique_ptr<Validation> validation(new Validation(pesel_));
     validation->execute();
     return validation->isCorrect();

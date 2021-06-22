@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "person.hpp"
 #include <memory>
-#include <string>
+
 class TestPerson : public Person{
 public:
     explicit TestPerson() : Person() {
@@ -23,7 +23,7 @@ public:
 
     }
 
-    size_t getIndex() {
+    size_t getIndex() override {
         return 0;
     }
 };
@@ -46,6 +46,7 @@ TEST(PersonTest, It_should_be_partially_filled_in_fields_when_we_use_a_construct
     ASSERT_TRUE(person->getAddress().compare("New York") == 0);
     ASSERT_EQ(person->getPesel(),  0LL);
     ASSERT_EQ(person->getSex(),  Gender::Female);
+    ASSERT_EQ(person->getIndex(), 0);
 }
 
 TEST(PersonTest, It_should_populate_all_fields_when_we_use_the_constructor_with_all_parameters) {
@@ -56,4 +57,10 @@ TEST(PersonTest, It_should_populate_all_fields_when_we_use_the_constructor_with_
     ASSERT_TRUE(person->getAddress().compare("Hollywood") == 0);
     ASSERT_EQ(person->getPesel(),  10003230001LL);
     ASSERT_EQ(person->getSex(),  Gender::Male);
+}
+
+TEST(PersonTest, Should_be_a_valid_pesel) {
+    auto person = std::unique_ptr<TestPerson>(new TestPerson("Tom", "Cruise", "Hollywood", 85081131377, Gender::Male));
+
+    ASSERT_TRUE(person->peselIsValid());
 }

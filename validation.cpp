@@ -7,11 +7,11 @@ void Validation::execute() {
 
     const int weights[] = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 0};
     auto w = static_cast<int>(std::ceil(std::log10(pesel_)));
-    if (w == 11) {
+    if (w == 10 || w == 11) {
 
         auto value = pesel_;
         auto control = value % 10;
-        w-=1;
+        w = 10;
         value /= 10;
 
         auto sum = 0;

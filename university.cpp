@@ -1,5 +1,4 @@
 #include "university.hpp"
-#include "delete.hpp"
 #include "load.hpp"
 #include "print.hpp"
 #include "save.hpp"

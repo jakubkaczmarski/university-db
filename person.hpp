@@ -19,7 +19,7 @@ public:
   Gender getSex() const;
 
   virtual size_t getIndex() = 0;
-  bool peselIsCorrect();
+  bool peselIsValid();
 
 private:
   std::string name_;

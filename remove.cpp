@@ -8,7 +8,6 @@ void Remove::execute() {
     auto removeIt = university_->end();
     for (auto it = university_->begin(); it != university_->end(); it++) {
         if (fn_(*it)) {
-        //if ((*it)->getIndex() == index) {
             removeIt = it;
             break;
         }

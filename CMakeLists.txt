@@ -68,6 +68,8 @@ set(tests
         sort-ut.cpp
         command-ut.cpp
         person-ut.cpp
+        remove-ut.cpp
+        validation-ut.cpp
         )
 
 add_executable(${PROJECT_NAME} university-db.cpp ${sources})
