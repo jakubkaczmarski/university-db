@@ -4,6 +4,7 @@
 #include "search.hpp"
 #include "sort.hpp"
 #include "student.hpp"
+#include "remove.hpp"
 #include <memory>
 #include <utility>
 
@@ -18,6 +19,13 @@ void University::saveRecords(const std::string &filename) {
     save->execute();
 }
 void University::addStudent(Student *student) { students_.push_back(student); }
+
+void University::removeStudents(const size_t& index) {
+    std::unique_ptr<Remove> remove(new Remove(this, [index](Person *p){
+        return p->getIndex() == index;
+    }));
+    remove->execute();
+}
 void University::printAllDatabase() {
     for (auto *student : students_)
         student->print();

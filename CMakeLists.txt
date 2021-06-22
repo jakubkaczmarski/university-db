@@ -58,9 +58,10 @@ set(sources
         student.cpp
         load.cpp
         save.cpp
-        validation.cpp
         search.cpp
-        )
+        remove.cpp
+        validation.cpp
+       )
 
 set(tests
         sort-ut.cpp
