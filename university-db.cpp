@@ -28,15 +28,15 @@ int main() {
     university->printAllDatabase();
     // Sorting by surname and by pesel number.
 
-    std::cout << "Removing students by index.\n";
+    std::cout << "Removing students by index and saving them.\n";
     university->removeStudents(759391);
+    university->saveRecords("university.json");
     university->printAllDatabase();
     // Removing students by index.
 
-    // std::cout << "Removing students from database.\n";
-    // university->clearStudents();
-    university->saveRecords("university.json");
-    // Removing students from database.
+    std::cout << "Removing students from database.\n";
+    university->clearStudents();
+     // Removing students from database.
 
     return 0;
 }
