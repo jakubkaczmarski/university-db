@@ -1,21 +1,42 @@
 #include "university.hpp"
+#include "student.hpp"
 #include <memory>
 
 int main() {
-
     std::unique_ptr<University> university(new University());
-    university->addStudent(new Student("Jan", "Kowalski", "Warszawa", 1001,
-                                       22113355664, Gender::Male));
-    university->addStudent(new Student("Anna", "Nowak", "Wrocław", 1002,
-                                       12345678901, Gender::Female));
-    university->addStudent(new Student("Andrzej", "Skowroński", "Gdańsk", 1003,
-                                       11223344556, Gender::Male));
-    university->saveRecords("university.json");
-
-//    university->searchByPesel(12345678901);
-//    university->searchBySurname("Kowalski");
-    university->removeStudents(1003);
+    university->loadRecords("university.json");
     university->printAllDatabase();
+    // Printing all database.
+
+    std::cout << "Adding new students to database.\n";
+    university->addStudent(new Student("Adam", "Mickiewicz", "Zaosie", 100044, 98122400010, Gender::Male));
+    university->addStudent(new Student("Robert", "Makłowicz", "Kraków", 215647, 63081209379, Gender::Male));
+    university->addStudent(new Student("Zofia", "Zofińska", "Lublin", 759391, 51020634982, Gender::Female));
+    university->saveRecords("university.json");
+    // Adding new students to database.
+
+    std::cout << "Searching by surname and by pesel number.\n";
+    university->searchBySurname("Mickiewicz");
+    university->searchByPesel(75111209379);
+    // Searching by surname and by pesel number.
+
+    std::cout << "Sorting by surname.\n";
+    university->sortBySurname();
+    university->printAllDatabase();
+    std::cout << "Sorting by pesel number.\n";
+    university->sortByPesel();
+    university->printAllDatabase();
+    // Sorting by surname and by pesel number.
+
+    std::cout << "Removing students by index.\n";
+    university->removeStudents(759391);
+    university->printAllDatabase();
+    // Removing students by index.
+
+    // std::cout << "Removing students from database.\n";
+    // university->clearStudents();
+    university->saveRecords("university.json");
+    // Removing students from database.
 
     return 0;
 }
