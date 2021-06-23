@@ -23,8 +23,7 @@ public:
 
     auto begin() { return students_.begin(); }
     auto end() { return students_.end(); }
-    auto erase(const std::vector<Person *>::iterator& it) { return students_.erase(it); }
-
+    auto erase(const std::vector<Person *>::iterator& it) { auto r = students_.erase(it); students_.shrink_to_fit();}
     void clearStudents();
 
 private:

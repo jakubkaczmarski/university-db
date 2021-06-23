@@ -4,7 +4,7 @@
 
 int main() {
     std::unique_ptr<University> university(new University());
-    university->loadRecords("university.json");
+    // university->loadRecords("university.json");
     university->printAllDatabase();
     // Printing all database.
 
