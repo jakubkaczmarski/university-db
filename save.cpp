@@ -9,6 +9,7 @@ Save::Save(University *university, const std::string& filename)
 }
 
 void Save::execute() {
+    
     json array = json::array();
     for (auto it = university_->begin(); it != university_->end(); it++) {
             json object = json::object();
@@ -20,7 +21,11 @@ void Save::execute() {
             object["sex"] = (*it)->getSex();
             array.push_back(object);
     }
-    ofs << array;
+    if(ofs.good())
+    {
+         ofs << array;
+    }
+   
 }
 Save::~Save() {
     ofs.close();
